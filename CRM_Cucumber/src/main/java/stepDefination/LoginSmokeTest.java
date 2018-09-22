@@ -22,7 +22,7 @@ public class LoginSmokeTest {
 		System.setProperty("webdriver.chrome.driver",
 				"A://software//selenium//chromedriver_win32//chromedriver.exe");
 		dir = new ChromeDriver();
-
+		System.out.println("Hieee");
 		dir.get("https://www.freecrm.com/index.html");
 
 	}
@@ -44,19 +44,18 @@ public class LoginSmokeTest {
 
 	@And("^User click on login button$")
 	public void User_click_on_login_button() {
-		WebElement button=dir.findElement(By.xpath("//input[@type='submit']"));
-		JavascriptExecutor js = (JavascriptExecutor) dir;  
-		js.executeScript("arguments[0].click()",button);
+		WebElement button = dir
+				.findElement(By.xpath("//input[@type='submit']"));
+		JavascriptExecutor js = (JavascriptExecutor) dir;
+		js.executeScript("arguments[0].click()", button);
 
 	}
 
-	
-	 @Then("^User is in Homepage$") public void User_is_on_Home_page() {
-		 String Home_Title=dir.getTitle();
-		 Assert.assertEquals("CRMPRO",Home_Title);
-		 dir.close();
-	 }	 
-	 
-	 
-	 
+	@Then("^User is in Homepage$")
+	public void User_is_on_Home_page() {
+		String Home_Title = dir.getTitle();
+		Assert.assertEquals("CRMPRO", Home_Title);
+		dir.close();
+	}
+
 }
